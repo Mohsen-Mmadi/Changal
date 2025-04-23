@@ -1,0 +1,22 @@
+:root{
+    --backgroundBody:#d0dae4;
+    --orginalColor:#3B82F6; /* برای دکمه ها و هایلایت ها */
+    --secondaryColor:#64748B;/* متن، آیکون، جزئیات */
+    --textColor:#111827;/* تیتر یا متون یاست */
+    --componentColor:#ffffff;
+}
+.backgroundBody{
+    background-color: var(--backgroundBody);
+}
+.orginalColor{
+    background-color: var(--orginalColor);
+}
+.secondaryBgColor{
+    background-color: var(--secondaryColor);
+}
+.secondaryTextColor{
+    color: var(--secondaryColor);
+}
+.componentColor{
+    background-color: var(--componentColor);
+}
