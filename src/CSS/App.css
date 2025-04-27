@@ -22,6 +22,10 @@
     font-family: fontTitr;
     src: url(/src/assets/Fonts/MIKHAK-BOLD.TTF), format('ttf');
 }
+@font-face {
+    font-family: fontText;
+    src: url(/src/assets/Fonts/B\ MITRA\ BOLD.TTF), format('ttf');
+}
 
 .bodyLightColor{
     background-color: var(--bodyLightColor);
