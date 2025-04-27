@@ -1,22 +1,61 @@
-:root{
-    --backgroundBody:#d0dae4;
-    --orginalColor:#3B82F6; /* برای دکمه ها و هایلایت ها */
-    --secondaryColor:#64748B;/* متن، آیکون، جزئیات */
-    --textColor:#111827;/* تیتر یا متون یاست */
-    --componentColor:#ffffff;
+:root {
+    /* Themes color */
+    --bodyLightColor: #f1f2f6;
+    --bodyDarkColor: #161616;
+    
+    --titrDarkColor: #1d1615;
+    --textDarkColor: #747d8c;
+    
+    --titrLightColor:#ffffff;
+    --textLightColor:#e2ebee;
+    /* basic color for web */
+    --componentColor: #fff;
+    --btnColor: #00a473;
+    --textBrand:var(--btnColor)
 }
-.backgroundBody{
-    background-color: var(--backgroundBody);
+
+@font-face {
+    font-family: fontBrand;
+    src: url(/src/assets/Fonts/Molgan.otf), format('otf');
 }
-.orginalColor{
-    background-color: var(--orginalColor);
+@font-face {
+    font-family: fontTitr;
+    src: url(/src/assets/Fonts/MIKHAK-BOLD.TTF), format('ttf');
 }
-.secondaryBgColor{
-    background-color: var(--secondaryColor);
+
+.bodyLightColor{
+    background-color: var(--bodyLightColor);
 }
-.secondaryTextColor{
-    color: var(--secondaryColor);
+.bodyDarkColor{
+    background-color: var(--bodyDarkColor);
+}
+.titrDarkColor{
+    color: var(--titrDarkColor);
+}
+.textDarkColor{
+    color: var(--textDarkColor);
+}
+.titrLightColor{
+    color: var(--titrLightColor);
+}
+.textLightColor{
+    color: var(--textLightColor);
 }
 .componentColor{
     background-color: var(--componentColor);
+}
+.btnColor{
+    background-color: var(--btnColor);
+}
+.textBrand{
+    color: var(--textBrand);
+}
+.fontBrand {
+    font-family: fontBrand !important;
+}
+.fontTitr{
+    font-family: fontTitr;
+}
+.shadowNav{
+    box-shadow: inset rgba(0, 0, 0, 0.3);
 }
