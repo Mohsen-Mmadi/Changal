@@ -7,7 +7,8 @@ function App() {
  return(
   <>
   <div className='backgroundBody'>   
-    <Navbar />   
+    <Navbar />
+    <Home/>   
   </div>
   </>
  )
