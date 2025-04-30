@@ -1,15 +1,12 @@
-import { Outlet } from "react-router-dom";
-
-function Fastfoods() {
+function Atavich() {
     return (
         <>
             <div className="p-10 text-center text-2xl font-bold">
-                اینجا صفحه فست فودهاست 🍔🍟
+                اینجا صفحه Atavich  🍔🍟
             </div>
             {/* میتونی اینجا لیست فست فودها، عکس‌ها یا هر چیزی که برای فست فودهاست قرار بدی */}
-            <Outlet/>
+            
         </>
     );
 }
-
-export { Fastfoods };
+export {Atavich}

@@ -1,15 +1,12 @@
-import { Outlet } from "react-router-dom";
-
-function Fastfoods() {
+function Refah() {
     return (
         <>
             <div className="p-10 text-center text-2xl font-bold">
-                اینجا صفحه فست فودهاست 🍔🍟
+                اینجا صفحه Refah  🍔🍟
             </div>
             {/* میتونی اینجا لیست فست فودها، عکس‌ها یا هر چیزی که برای فست فودهاست قرار بدی */}
-            <Outlet/>
+            
         </>
     );
 }
-
-export { Fastfoods };
+export {Refah}
