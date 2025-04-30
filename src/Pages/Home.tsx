@@ -179,7 +179,7 @@ function MyAroundShop() {
       <div className="flex mr-2 pr-6">
         <h1 className=" fontTitr font-bold text-5xl ">اطراف من!</h1>
       </div>
-     
+
       <section className="grid grid-cols-2 md:grid-cols-4 gap-3 p-5 items-center justify-between m-3">
         {myArounds.map((item) => (
           <Link to={item.patch} key={item.id}>
@@ -203,7 +203,6 @@ function MyAroundShop() {
                 </div>
                 <div className="grid gap-2">
                   <div className="p-2 text-right">
-                   
                     <p className="fontText inline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -248,12 +247,90 @@ function MyAroundShop() {
     </>
   );
 }
+function OfferCard() {
+  function copyToClipboard(text: string) {
+    navigator.clipboard.writeText(text).then(
+      function () {
+        alert("متن کپی شد!");
+      },
+      function (err) {
+        console.error("خطا در کپی کردن متن: ", err);
+      }
+    );
+  }
+  return (
+    <>
+      <section className="p-4  ">
+      <div className="flex    md:mr-1 mb-5 pr-6">
+        <h1 className=" fontTitr font-bold text-3xl "> بن های تخفیف برای تو!</h1>
+      </div>
+        <div className=" flex flex-col md:flex-row md:justify-start gap-4">
+          {/* بن تخفیف اول */}
+          <div className="w-80 h-52 p-3 rounded-xl grid grid-cols-3 gap-3 shadow-lg bg-white">
+            {/* بخش کد و آیکن */}
+            <div className="flex flex-col items-center justify-between bg-green-100 rounded-md py-2">
+              <i className="bi bi-gift-fill text-6xl text-red-500" />
+              <h4 className="font-bold text-lg">M-VUE</h4>
+              <button
+                onClick={() => copyToClipboard("M-VUE")}
+                className="bg-slate-200 text-sm font-bold px-3 py-1 rounded-md border-2 border-dashed border-blue-300 hover:bg-blue-100 transition cursor-pointer"
+              >
+                کپی کردن
+              </button>
+            </div>
+            {/* بخش توضیحات */}
+            <div className="col-span-2 border-r-2 border-dashed border-gray-400 pr-3 flex flex-col justify-between">
+              <p className="text-sm">
+                مبلغ تخفیف: <span className="font-bold">40,000 تومان</span>
+              </p>
+              <Link to={""}>
+                <p className="text-blue-700 font-medium">مجموعه میثم خان</p>
+              </Link>
+              <p className="text-sm">
+                حداقل خرید: <span className="font-bold">280,000 تومان</span>
+              </p>
+
+              <p className="text-red-600 text-xs">تاریخ انقضا: 1404/3/2</p>
+            </div>
+          </div>
+
+          {/* بن تخفیف دوم */}
+          <div className="w-80 h-52 p-3 rounded-xl grid grid-cols-3 gap-3 shadow-lg bg-white">
+            <div className="flex flex-col items-center justify-between bg-green-100 rounded-md py-2">
+              <i className="bi bi-gift-fill text-6xl text-red-500" />
+              <h4 className="font-bold text-lg">M-REACT</h4>
+              <button
+                onClick={() => copyToClipboard("M-REACT")}
+                className="bg-slate-200 text-sm font-bold px-3 py-1 rounded-md border-2 border-dashed border-blue-300 hover:bg-blue-100 transition cursor-pointer"
+              >
+                کپی کردن
+              </button>
+            </div>
+            <div className="col-span-2 border-r-2 border-dashed border-gray-400 pr-3 flex flex-col justify-between">
+              <p className="text-sm">
+                مبلغ تخفیف: <span className="font-bold">50,000 تومان</span>
+              </p>
+              <Link to={""}>
+                <p className="text-blue-700 font-medium">مجموعه مکث</p>
+              </Link>
+              <p className="text-sm">
+                حداقل خرید: <span className="font-bold">210,000 تومان</span>
+              </p>
+              <p className="text-red-600 text-xs">تاریخ انقضا: 1404/3/3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 function Home() {
   return (
     <>
       <CTASection />
       <Categury />
       <MyAroundShop />
+      <OfferCard />
     </>
   );
 }
