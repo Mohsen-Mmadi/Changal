@@ -261,9 +261,12 @@ function OfferCard() {
   return (
     <>
       <section className="p-4  ">
-      <div className="flex    md:mr-1 mb-5 pr-6">
-        <h1 className=" fontTitr font-bold text-3xl "> بن های تخفیف برای تو!</h1>
-      </div>
+        <div className="flex    md:mr-1 mb-5 pr-6">
+          <h1 className=" fontTitr font-bold text-3xl ">
+            {" "}
+            بن های تخفیف برای تو!
+          </h1>
+        </div>
         <div className=" flex flex-col md:flex-row md:justify-start gap-4">
           {/* بن تخفیف اول */}
           <div className="w-80 h-52 p-3 rounded-xl grid grid-cols-3 gap-3 shadow-lg bg-white">
@@ -324,6 +327,158 @@ function OfferCard() {
     </>
   );
 }
+function Footer() {
+  // return (
+  //   <>
+  //     <footer className="componentColor mb-0 p-2">
+  //       <div className="grid grid-rows-1">
+  //         <div className="row-start-1 row-end-3 col-span-4 bg-red-600">
+  //           <div className="  md:m-0 flex flex-col items-center gap-2 font-bold text-5xl fontBrand textBrand">
+  //             {/* لوگو */}
+  //             <span className="">Changal</span>
+  //             <img
+  //               src="/src/assets/Icons/Changal.svg"
+  //               alt="fork"
+  //               className=" w-[17rem] h-[17rem]  p-0"
+  //             />
+  //           </div>
+  //         </div>
+  //         <div className="grid-cols-8 bg-blue-500">
+  //           <div className="grid grid-cols-3 bg-green-500">
+  //             <div>
+  //               <ul>
+  //                 <li>dddddd</li>
+  //                 <li>dddddws</li>
+  //               </ul>
+  //             </div>
+  //             <div>
+  //               <ul>
+  //                 <li>ww</li>
+  //                 <li>qq</li>
+  //               </ul>
+  //             </div>
+  //             <div>
+  //               <ul>
+  //                 <li>sssa</li>
+  //                 <li>dcfdfd</li>
+  //               </ul>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <div id="Mojavez">
+  //           <img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
+  //         </div>
+  //         <div id="copyRight">
+
+  //         </div>
+  //       </div>
+  //     </footer>
+  //   </>
+  // );
+  return (
+    <>
+      <footer className="componentColor p-4 mt-10">
+        <div className="grid grid-cols-1  md:grid-cols-4 gap-4 items-center">
+          {/* برند و لوگو */}
+          <div className=" bg-green-200 rounded-xl p-4 text-center col-span-1 flex flex-col items-center md:items-center gap-2 md:col-span-1">
+            <span className="fontBrand textBrand text-4xl font-bold ">
+              Changal
+            </span>
+            <img
+              src="/src/assets/Icons/Changal.svg"
+              alt="fork"
+              className="w-40 h-40"
+            />
+          </div>
+
+          {/* لینک‌ها */}
+          <div className="col-span-1 md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-right">
+            <div className="linksFooter">
+              <h4 className="font-semibold text-lg mb-2">مجموعه ها</h4>
+              <ul className="space-y-1">
+                <li>
+                  <a href="#">رستوران</a>
+                </li>
+                <li>
+                  <a href="#">فست فود</a>
+                </li>
+                <li>
+                  <a href="#">کافه</a>
+                </li>
+                <li>
+                  <a href="#">سوپر مارکت</a>
+                </li>
+              </ul>
+            </div>
+            <div className="linksFooter">
+              <h4 className="font-semibold text-lg mb-2">مجموعه های منتخب</h4>
+              <ul className="space-y-1">
+                <li>
+                  <a href="#">رستوران عسکری راد</a>
+                </li>
+                <li>
+                  <a href="#">فست فود عطاویچ</a>
+                </li>
+                <li>
+                  <a href="#">کافه جاکارتو</a>
+                </li>
+                <li>
+                  <a href="#">فروشگاه افق کوروش</a>
+                </li>
+              </ul>
+            </div>
+            <div className="linksFooter">
+              <h4 className="font-semibold text-lg mb-2">راهنمای مشتریان</h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link to={"/About"}>
+                    <p>درباره ما</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/CallMe"}>
+                    <p>تماس با ما</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/Suports"}>
+                    <p>پشتیبانی</p>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* مجوزها */}
+        <div className="flex justify-end items-center gap-6 mt-6">
+          
+        <img
+            src="/src/assets/images/sibeSalamat.png"
+            alt="mojavez3"
+            className="w-20 h-20"
+          />
+          <img
+            src="/src/assets/images/iconEtemad.png"
+            alt="mojavez2"
+            className="w-20 h-20"
+          />
+          <img
+            src="/src/assets/images/estandard.png"
+            alt="mojavez1"
+            className="w-20 h-20"
+          />
+        </div>
+
+        {/* کپی رایت */}
+        <div className="text-center text-xl text-gray-500 mt-4 border-t pt-2">
+           <span className="text-xl font-bold mx-1">&copy;</span>{new Date().getFullYear()}  تمامی لوگو ها، عکس ها و سایر محتوا های قرار داده شده با احترام متعلق به <strong>چنگال</strong> است و امتیاز استفاده از این اطلاعات تنها برای <strong>چنگال</strong> مجاز است  {" "}
+           
+        </div>
+      </footer>
+    </>
+  );
+}
 function Home() {
   return (
     <>
@@ -331,6 +486,7 @@ function Home() {
       <Categury />
       <MyAroundShop />
       <OfferCard />
+      <Footer />
     </>
   );
 }

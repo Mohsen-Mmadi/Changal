@@ -66,3 +66,8 @@
 .backgroundBlur{
     filter: blur(4px);
 }
+.linksFooter {
+    a{
+        color: #254566;
+    }
+}

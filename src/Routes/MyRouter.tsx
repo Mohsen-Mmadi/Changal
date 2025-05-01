@@ -4,6 +4,7 @@ import { Login } from "../Pages/Login";
 import { Register } from "../Pages/Register";
 import { About } from "../Pages/About";
 import { CallMe } from "../Pages/CallMe";
+import { Suports } from "../Pages/Suports";
 import { Cart } from "../Pages/Cart";
 import { Fastfoods } from "../Pages/Fastfood";
 import { Rasturants } from "../Pages/Rasturants";
@@ -51,6 +52,7 @@ function MyRouter() {
                 {/* سایر صفحات */}
                 <Route path="/About" element={<About />} />
                 <Route path="/CallMe" element={<CallMe />} />
+                <Route path="/Suports" element={<Suports />} />
             </Routes>
 
         </>
