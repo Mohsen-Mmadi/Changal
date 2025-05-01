@@ -66,7 +66,7 @@ let myArounds: myAround[] = [
   {
     id: 2,
     title: "کافه فنجانه",
-    image: "/src/assets/images/fenjaneh.jpg",
+    image: "/src/assets/images/Cafee-Fenjaneh.jpg",
     location: "شهرک مطهری",
     score: 4.1,
     patch: "/Cafees/Fenjaneh",
@@ -85,7 +85,7 @@ let myArounds: myAround[] = [
     id: 4,
     title: "فست فود عطاویچ",
     image: "/src/assets/images/FSFood-Atavich.jpg",
-    location: "بلوار جمهوری",
+    location: "بلوار شیراز",
     score: 4.7,
     patch: "/Fastfoods/Atavich",
     isOpen: openingHours(),

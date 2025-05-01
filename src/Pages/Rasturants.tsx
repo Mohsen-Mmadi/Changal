@@ -19,7 +19,7 @@ type Restaurant = {
     patch: string;
     isOpen: boolean;
   };
-let myNearbyRestaurant: Restaurant[] = [
+let mySelectedRestaurant: Restaurant[] = [
     {
       id: 1,
       title: "رستوران عسکری راد",
@@ -87,7 +87,7 @@ function NearbyRestaurant() {
         </div>
   
         <section className="grid grid-cols-2 md:grid-cols-4 gap-3 p-5 items-center justify-between m-3">
-          {myNearbyRestaurant.map((item) => (
+          {mySelectedRestaurant.map((item) => (
             <Link to={item.patch} key={item.id}>
               <div className="componentColor rounded-xl cursor-pointer w-full">
                 <img
