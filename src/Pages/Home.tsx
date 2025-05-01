@@ -32,25 +32,25 @@ let categuries: categury[] = [
     id: 1,
     title: "رستوران",
     icon: "/src/assets/Icons/Restaurant-icon.png",
-    patch: "Rasturants",
+    patch: "/Rasturants",
   },
   {
     id: 2,
     title: "فست فود",
     icon: "/src/assets/Icons/FastFood-icon.png",
-    patch: "Fastfoods",
+    patch: "/Fastfoods",
   },
   {
     id: 3,
     title: "کافه",
     icon: "/src/assets/Icons/Cofee-icon.png",
-    patch: "Cafees",
+    patch: "/Cafees",
   },
   {
     id: 4,
     title: "سوپر مارکت",
     icon: "/src/assets/Icons/Market-icon.png",
-    patch: "Markets",
+    patch: "/Markets",
   },
 ];
 let myArounds: myAround[] = [
@@ -69,7 +69,7 @@ let myArounds: myAround[] = [
     image: "/src/assets/images/fenjaneh.jpg",
     location: "شهرک مطهری",
     score: 4.1,
-    patch: "Cafees/Fenjaneh",
+    patch: "/Cafees/Fenjaneh",
     isOpen: openingHours(),
   },
   {
@@ -452,8 +452,7 @@ function Footer() {
 
         {/* مجوزها */}
         <div className="flex justify-end items-center gap-6 mt-6">
-          
-        <img
+          <img
             src="/src/assets/images/sibeSalamat.png"
             alt="mojavez3"
             className="w-20 h-20"
@@ -472,8 +471,10 @@ function Footer() {
 
         {/* کپی رایت */}
         <div className="text-center text-xl text-gray-500 mt-4 border-t pt-2">
-           <span className="text-xl font-bold mx-1">&copy;</span>{new Date().getFullYear()}  تمامی لوگو ها، عکس ها و سایر محتوا های قرار داده شده با احترام متعلق به <strong>چنگال</strong> است و امتیاز استفاده از این اطلاعات تنها برای <strong>چنگال</strong> مجاز است  {" "}
-           
+          <span className="text-xl font-bold mx-1">&copy;</span>
+          {new Date().getFullYear()} تمامی لوگو ها، عکس ها و سایر محتوا های قرار
+          داده شده با احترام متعلق به <strong>چنگال</strong> است و امتیاز
+          استفاده از این اطلاعات تنها برای <strong>چنگال</strong> مجاز است{" "}
         </div>
       </footer>
     </>
@@ -493,3 +494,4 @@ function Home() {
 export { Home };
 export { HeroSection };
 export { CTASection };
+export { Footer };
