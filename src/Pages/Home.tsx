@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigate, Link } from "react-router-dom";
 import { Fastfoods } from "./Fastfood";
+import { useModalStore } from '../Store';
 
 let time = new Date();
 function openingHours() {
@@ -91,7 +92,51 @@ let myArounds: myAround[] = [
     isOpen: openingHours(),
   },
 ];
+
 // TODO Components
+function AuthModal() {
+  const { isOpen, type, closeModal } = useModalStore();
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white w-11/12 max-w-md rounded-lg p-6 relative">
+        <button
+          className="absolute top-2 right-2 text-xl text-gray-600"
+          onClick={closeModal}
+        >
+          &times;
+        </button>
+        <h2 className="text-2xl font-bold fontTitr mb-4 text-center">
+          {type === 'login' ? 'ورود به حساب کاربری' : 'ثبت‌نام'}
+        </h2>
+        <form className="flex flex-col gap-4 ">
+          <input
+            type="text"
+            placeholder="ایمیل یا نام کاربری"
+            className="border px-3 py-2 rounded fontText"
+          />
+          <input
+            type="password"
+            placeholder="رمز عبور"
+            className="border px-3 py-2 rounded fontText"
+          />
+          {type === 'register' && (
+            <input
+              type="password"
+              placeholder="تکرار رمز عبور"
+              className="border px-3 py-2 rounded fontText"
+            />
+          )}
+          <button className="bg-orange-500 text-white py-2 rounded fontTitr">
+            {type === 'login' ? 'ورود' : 'ثبت‌نام'}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
 function HeroSection() {
   return (
     <section className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden">
@@ -129,9 +174,11 @@ function CTASection() {
           >
             <option value="کرمان">کرمان</option>
           </select>
-          <a href="#" className="fontText font-bold textBrand">
-            انتخاب بر اساس نقشه〱
-          </a>
+          <button>
+            <a href="#" className="fontText font-bold textBrand">
+              انتخاب بر اساس نقشه〱
+            </a>
+          </button>
           <button
             type="button"
             className="fontTitr p-2 m-2 rounded-md btnColor text-white"
@@ -483,6 +530,7 @@ function Footer() {
 function Home() {
   return (
     <>
+      <AuthModal/>
       <CTASection />
       <Categury />
       <MyAroundShop />
@@ -492,6 +540,7 @@ function Home() {
   );
 }
 export { Home };
+export { AuthModal};
 export { HeroSection };
 export { CTASection };
 export { Footer };

@@ -1,6 +1,6 @@
 import { Outlet,Link } from "react-router-dom";
 import { Footer } from "./Home";
-
+import axios from "axios";
 
 let time = new Date();
 function openingHours() {
@@ -79,7 +79,8 @@ let mySelectedRestaurant: Restaurant[] = [
         isOpen: openingHours(),
       },
   ]
-function NearbyRestaurant() {
+function SelectedRestaurant() {
+  
     return (
       <>
         <div className="flex mr-2 mt-5 pr-6">
@@ -231,7 +232,7 @@ function Rasturants(){
     return(
         <>
         <Outlet/>
-        <NearbyRestaurant />
+        <SelectedRestaurant />
         <AllRestaurants />
         <Footer />
         </>

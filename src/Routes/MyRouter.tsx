@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { HeroSection, Home } from "../Pages/Home";
-import { Login } from "../Pages/Login";
+import { LoginForm } from "../Pages/Login";
 import { Register } from "../Pages/Register";
 import { About } from "../Pages/About";
 import { CallMe } from "../Pages/CallMe";
@@ -29,15 +29,27 @@ import { YeganMarket } from "../Pages/shop/YeganMarket";
 import { Navbar } from "../components/Navbar";
 
 function MyRouter() {
+  const location = useLocation();
+  const showHero =
+    location.pathname === "/" ||
+    location.pathname === "/Home" ||
+    location.pathname === "/Cart" ||
+    location.pathname === "/Rasturants" ||
+    location.pathname === "/Fastfoods" ||
+    location.pathname === "/Cafees" ||
+    location.pathname === "/Markets" ||
+    location.pathname === "/About" ||
+    location.pathname === "/CallMe" ||
+    location.pathname === "/Suports";
   return (
     <>
       <Navbar />
-      <HeroSection />
+      {showHero && <HeroSection />}
       <Routes>
         {/* صفحه اصلی */}
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/Login" element={<LoginForm  />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Cart" element={<Cart />} />
 

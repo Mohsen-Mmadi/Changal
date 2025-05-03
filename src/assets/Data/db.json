@@ -1,0 +1,41 @@
+
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "title": "رستوران عسکری راد",
+            "image": "/src/assets/images/RS-Ascari.jpg",
+            "location": "میدان رسالت",
+            "score": 4.8,
+            "patch": "/Rasturants/Ascari"
+            
+          },
+          {
+            "id": 2,
+            "title": "کافه فنجانه",
+            "image": "/src/assets/images/Cafee-Fenjaneh.jpg",
+            "location": "شهرک مطهری",
+            "score": 4.1,
+            "patch": "/Cafees/Fenjaneh"
+            
+          },
+          {
+            "id": 3,
+            "title": "فروشگاه رفاه",
+            "image": "/src/assets/images/SPMarket-Refah.jpg",
+            "location": "پارک مطهری",
+            "score": 3.9,
+            "patch": "/Markets/Refah"
+            
+          },
+          {
+            "id": 4,
+            "title": "فست فود عطاویچ",
+            "image": "/src/assets/images/FSFood-Atavich.jpg",
+            "location": "بلوار شیراز",
+            "score": 4.7,
+            "patch": "/Fastfoods/Atavich"
+            
+          }
+  ]
+}

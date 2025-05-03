@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../CSS/App.css'
 import { useTheme } from "../Store";
+import { useModalStore } from '../Store';
 
 function ChangalTheme() {
     const { darkMode, toggleTheme } = useTheme();
@@ -18,6 +19,7 @@ function ChangalTheme() {
 }
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { openModal } = useModalStore();
     return (
         <>
             <nav className="bg-white  shadow-md fixed top-0 left-0 w-full z-50">
@@ -48,15 +50,15 @@ function Navbar() {
                             </button>
                         </Link>
 
-                        <Link to="Login">
-                            <button className="btnColor font-bold fontTitr p-2 rounded-md cursor-pointer hover:opacity-75">ورود</button>
-                        </Link>
+                        
+                            <button onClick={() => openModal('login')} className="btnColor font-bold fontTitr p-2 rounded-md cursor-pointer hover:opacity-75">ورود</button>
+                        
 
-                        <Link to="Register">
-                            <button className="text-blue-500 font-bold fontTitr p-2 rounded-md cursor-pointer hover:opacity-75">
+                        
+                            <button onClick={() => openModal('register')} className="text-blue-500 font-bold fontTitr p-2 rounded-md cursor-pointer hover:opacity-75">
                                 ثبت‌نام
                             </button>
-                        </Link>
+                        
                     </div>
 
                     {/* آیکن همبرگر در موبایل */}
