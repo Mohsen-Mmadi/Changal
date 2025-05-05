@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { Navigate, Link } from "react-router-dom";
-import { Fastfoods } from "./Fastfood";
-import { useModalStore } from '../Store';
+import { useState } from "react";
+import {  Link,useNavigate  } from "react-router-dom";
+import { useModalStore,useUserStore,useFormStore} from "../Store";
+// مسیر دقیق فایل استور
 
 let time = new Date();
 function openingHours() {
-  if (time.getHours() >= 8 && time.getHours() <= 22) {
+  if (time.getHours() >= 9 && time.getHours() <= 22) {
     return true;
   } else {
     return false;
@@ -94,8 +94,81 @@ let myArounds: myAround[] = [
 ];
 
 // TODO Components
+// function AuthModal() {
+//   const { isOpen, type, closeModal } = useModalStore();
+
+//   if (!isOpen) return null;
+
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+//       <div className="bg-white w-11/12 max-w-md rounded-lg p-6 relative">
+//         <button
+//           className="absolute top-2 right-2 text-xl text-gray-600"
+//           onClick={closeModal}
+//         >
+//           &times;
+//         </button>
+//         <h2 className="text-2xl font-bold fontTitr mb-4 text-center">
+//           {type === 'login' ? 'ورود به حساب کاربری' : 'ثبت‌نام'}
+//         </h2>
+//         <form className="flex flex-col gap-4 ">
+//           <input
+//             type="text"
+//             placeholder="ایمیل یا نام کاربری"
+//             className="border px-3 py-2 rounded fontText"
+//           />
+//           <input
+//             type="password"
+//             placeholder="رمز عبور"
+//             className="border px-3 py-2 rounded fontText"
+//           />
+//           {type === 'register' && (
+//             <input
+//               type="password"
+//               placeholder="تکرار رمز عبور"
+//               className="border px-3 py-2 rounded fontText"
+//             />
+//           )}
+//           <button className="bg-orange-500 text-white py-2 rounded fontTitr">
+//             {type === 'login' ? 'ورود' : 'ثبت‌نام'}
+//           </button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
 function AuthModal() {
   const { isOpen, type, closeModal } = useModalStore();
+  const { login } = useUserStore();
+  const { formData, setFormData } = useFormStore();
+  const navigate = useNavigate();
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // اعتبارسنجی برای ثبت‌نام
+    if (type === "register" && formData.password !== formData.confirmPassword) {
+      setError("رمز عبور و تکرار آن یکسان نیستند.");
+      return;
+    }
+
+    // پاک کردن خطا و انجام عملیات
+    setError("");
+    console.log("داده‌های فرم:", formData);
+
+    // axios.post('/api/auth', formData).then(...)
+
+    login();         // وضعیت کاربر رو تغییر بده
+    closeModal();    // مودال رو ببند
+    navigate("/Home"); // هدایت به صفحه Home
+  };
 
   if (!isOpen) return null;
 
@@ -108,29 +181,48 @@ function AuthModal() {
         >
           &times;
         </button>
+
         <h2 className="text-2xl font-bold fontTitr mb-4 text-center">
-          {type === 'login' ? 'ورود به حساب کاربری' : 'ثبت‌نام'}
+          {type === "login" ? "ورود به حساب کاربری" : "ثبت‌نام"}
         </h2>
-        <form className="flex flex-col gap-4 ">
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
             placeholder="ایمیل یا نام کاربری"
             className="border px-3 py-2 rounded fontText"
+            required
           />
           <input
             type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
             placeholder="رمز عبور"
             className="border px-3 py-2 rounded fontText"
+            required
           />
-          {type === 'register' && (
+          {type === "register" && (
             <input
               type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               placeholder="تکرار رمز عبور"
               className="border px-3 py-2 rounded fontText"
+              required
             />
           )}
-          <button className="bg-orange-500 text-white py-2 rounded fontTitr">
-            {type === 'login' ? 'ورود' : 'ثبت‌نام'}
+
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
+
+          <button className="bg-orange-500 text-white py-2 rounded fontTitr hover:opacity-80 transition-all">
+            {type === "login" ? "ورود" : "ثبت‌نام"}
           </button>
         </form>
       </div>
@@ -530,7 +622,7 @@ function Footer() {
 function Home() {
   return (
     <>
-      <AuthModal/>
+      <AuthModal />
       <CTASection />
       <Categury />
       <MyAroundShop />
@@ -540,7 +632,7 @@ function Home() {
   );
 }
 export { Home };
-export { AuthModal};
+export { AuthModal };
 export { HeroSection };
 export { CTASection };
 export { Footer };

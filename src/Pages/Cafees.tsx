@@ -26,7 +26,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Fenjaneh.jpg",
         location: "بلوار هزار",
         score: 4.1,
-        patch: "/Cafee/Fenjaneh",
+        patch: "/Cafees/Fenjaneh",
         isOpen: openingHours(),
       },
       {
@@ -35,7 +35,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Bistro.jpg",
         location: "بلوار حمزه",
         score: 3.9,
-        patch: "/Cafee/Bistro",
+        patch: "/Cafees/Bistro",
         isOpen: openingHours(),
       },
     
@@ -48,7 +48,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Fenjaneh.jpg",
         location: "بلوار هزار",
         score: 4.1,
-        patch: "/Cafee/Fenjaneh",
+        patch: "/Cafees/Fenjaneh",
         isOpen: openingHours(),
       },
       {
@@ -57,7 +57,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Bistro.jpg",
         location: "بلوار حمزه",
         score: 3.9,
-        patch: "/Cafee/Bistro",
+        patch: "/Cafees/Bistro",
         isOpen: openingHours(),
       },
       {
@@ -66,7 +66,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Ratoon.jpg",
         location: "بلوار آبنوس",
         score: 4,
-        patch: "/Cafee/Ratoon",
+        patch: "/Cafees/Ratoon",
         isOpen: openingHours(),
       },
       {
@@ -75,7 +75,7 @@ let mySelectedCafees: Cafee[] = [
         image: "/src/assets/images/Cafee-Jakarto.jpg",
         location: "بلوار میثم",
         score: 3.3,
-        patch: "/Cafee/Jacarto",
+        patch: "/Cafees/Jacarto",
         isOpen: openingHours(),
       },
   ]

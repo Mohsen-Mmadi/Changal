@@ -1,12 +1,382 @@
-function Karamoozian() {
-    return (
-        <>
-            <div className="p-10 text-center text-2xl font-bold">
-                اینجا صفحه Karamoozian  🍔🍟
-            </div>
-            {/* میتونی اینجا لیست فست فودها، عکس‌ها یا هر چیزی که برای فست فودهاست قرار بدی */}
-            
-        </>
-    );
+import "../../CSS/App.css";
+type menu = {
+    id: number;
+    title: string;
+    image: string;
+    ditales?: string;
+    price: number | string;
+  };
+  let food: menu[] = [
+    {
+      id: 1,
+      title: "چلوکباب میکس",
+      image: "/src/assets/images/food/cheloMix.jpg",
+      price: "250,000",
+    },
+    {
+      id: 2,
+      title: "چلو گوشت زرندی ",
+      image: "/src/assets/images/food/cheloGoosht.jpg",
+      price: "270,000",
+    },
+    {
+      id: 3,
+      title: "چلو مرغ",
+      image: "/src/assets/images/food/cheloMorgh.jpg",
+      price: "160,000",
+    },
+    {
+      id: 4,
+      title: "عدس پلو",
+      image: "/src/assets/images/food/adasPolo.jpg",
+      price: "70,000",
+    },
+    {
+      id: 5,
+      title: "میرزاقاسمی",
+      image: "/src/assets/images/food/mirzaghasemi.jpg",
+      price: "95,000",
+    },
+  ];
+  let appetizer: menu[] = [
+    {
+      id: 1,
+      title: "سالاد شیرازی",
+      image: "/src/assets/images/food/saladShirazi.jpg",
+      price: "40,000",
+    },
+    {
+      id: 2,
+      title: "زیتون پرورده",
+      image: "/src/assets/images/food/zeytoon.jpg",
+      price: "48,000",
+    },
+    {
+      id: 3,
+      title: "ژله",
+      image: "/src/assets/images/food/jeleh.jpg",
+      price: "35,000",
+    },
+    {
+      id: 4,
+      title: "نان اضافه",
+      image: "/src/assets/images/food/Nan.jpg",
+      price: "5,000",
+    },
+  ];
+  let drink: menu[] = [
+    {
+      id: 1,
+      title: "نوشابه قوطی 150میلی لیتر",
+      image: "/src/assets/images/food/nooshabeh.jpg",
+      price: "28,000",
+    },
+    {
+      id: 2,
+      title: "آب معدنی",
+      image: "/src/assets/images/food/wather.jpg",
+      price: "6,000",
+    },
+    {
+      id: 3,
+      title: "دوغ محلی",
+      image: "/src/assets/images/food/dooghMahali.jpg",
+      price: "55,000",
+    },
+  ];
+function RestaurantBanner() {
+  return (
+    <section className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden">
+      {/* لایه عکس بلور شده */}
+      <div className="absolute inset-0 backgroundBlur">
+        <img
+          src="/src/assets/images/RS-Karamoozian.jpg"
+          alt="نمایشگاه"
+          className="w-full h-full object-cover "
+        />
+      </div>
+
+      {/* محتوای واضح روی عکس */}
+      {/* <div className="relative z-10 text-center ">
+        
+      </div> */}
+    </section>
+  );
 }
-export {Karamoozian}
+
+function RestaurantProfile() {
+  const time = new Date();
+
+  const isOpenNow = time.getHours() >= 9 && time.getHours() <= 22;
+
+  const restaurant = {
+    id: 1,
+    title: "رستوران کارآموزیان",
+    image: "/src/assets/images/RS-KaramoozianSmall.jpg",
+    location: "میدان قرنی",
+    score: 4.5,
+    patch: "/Rasturants/Karamoozian",
+    isOpen: isOpenNow,
+    workTime: "9-23",
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 max-w-6xl mx-auto">
+      {/* تصویر + وضعیت */}
+      <div className="relative w-full h-full">
+        <img
+          src={restaurant.image}
+          alt={restaurant.title}
+          className="rounded-2xl w-full h-[30vh] object-cover shadow-lg "
+        />
+
+        <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md rounded-xl p-3 shadow-md flex flex-col items-start">
+          <span
+            className={`text-sm font-semibold px-3 py-1 rounded-full text-white ${
+              restaurant.isOpen ? "bg-green-500" : "bg-red-500"
+            }`}
+          >
+            {restaurant.isOpen ? "آنلاین" : "آفلاین"}
+          </span>
+          <span className="text-gray-800 text-sm mt-1">
+            {restaurant.isOpen
+              ? "آماده‌ی سفارش هستیم"
+              : "در حال حاضر سفارش نمی‌پذیرد"}
+          </span>
+        </div>
+      </div>
+      {/* اطلاعات متنی */}
+      <div className="flex flex-col justify-center gap-4 text-right">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 fontTitr">
+          {restaurant.title}
+        </h1>
+
+        <p className="text-xl text-gray-700 flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="inline"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#f9ca24"
+          >
+            <path d="M240-400q0 52 21 98.5t60 81.5q-1-5-1-9v-9q0-32 12-60t35-51l113-111 113 111q23 23 35 51t12 60v9q0 4-1 9 39-35 60-81.5t21-98.5q0-50-18.5-94.5T648-574q-20 13-42 19.5t-45 6.5q-62 0-107.5-41T401-690q-39 33-69 68.5t-50.5 72Q261-513 250.5-475T240-400Zm240 52-57 56q-11 11-17 25t-6 29q0 32 23.5 55t56.5 23q33 0 56.5-23t23.5-55q0-16-6-29.5T537-292l-57-56Zm0-492v132q0 34 23.5 57t57.5 23q18 0 33.5-7.5T622-658l18-22q74 42 117 117t43 163q0 134-93 227T480-80q-134 0-227-93t-93-227q0-129 86.5-245T480-840Z" />
+          </svg>
+          {restaurant.score}
+        </p>
+
+        <p className="text-xl fontText text-gray-700 flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#535c68"
+            className="inline"
+          >
+            <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+          </svg>
+          {restaurant.location}
+        </p>
+
+        <p className="text-lg text-gray-700 fontText">
+          <span className="font-semibold text-xl text-gray-900">
+            ساعت کاری:
+          </span>{" "}
+          {restaurant.workTime}
+        </p>
+
+        <div className="flex flex-wrap gap-4 mt-2">
+          <button className="bg-orange-500  hover:bg-orange-600 transition px-4 py-2 rounded-lg text-white font-semibold">
+            <a href="#orginalFood">منوی رستوران</a>
+          </button>
+          <button className="bg-slate-600  hover:bg-slate-700 transition px-4 py-2 rounded-lg text-white font-semibold">
+            <a href="#">نظرات کاربران</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+function MenuTabs() {
+  return (
+    <>
+      <div className="w-full p-3 mb-3 componentColor border-b-4 border-orange-500 fontTitr">
+        {/* عنوان */}
+        <div className="w-full text-center mb-4">
+          <h1 className="text-3xl font-bold">منوی رستوران</h1>
+        </div>
+
+        {/* دکمه‌ها */}
+        <div className="flex justify-center flex-wrap gap-2 text-2xl">
+          <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
+            <a href="#orginalFood">غذای اصلی</a>
+          </button>
+          <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
+            <a href="#appetizer">پیش غذا</a>
+          </button>
+          <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
+            <a href="#drink">نوشیدنی</a>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+function Menu() {
+    return (
+      <>
+        <h1 id="orginalFood" className="fontTitr font-bold text-3xl text-center ">
+          غذای اصلی
+        </h1>
+  
+        <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-3">
+          {food.map((item) => (
+            <div
+              key={item.id}
+              className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+            >
+              {/* عکس غذا */}
+              <div className="w-40 h-40 shrink-0">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-r-xl"
+                />
+              </div>
+  
+              {/* جزئیات غذا */}
+              <div className="flex flex-col justify-between p-4 w-full">
+                <div>
+                  <h2 className="fontTitr font-bold text-lg mb-2">
+                    {item.title}
+                  </h2>
+                  <p className="fontText text-gray-700">
+                    {item.price.toLocaleString()} <span>تومان</span>
+                  </p>
+                </div>
+  
+                {/* دکمه افزودن */}
+                <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                  افزودن
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="20px"
+                    viewBox="0 -960 960 960"
+                    width="20px"
+                    fill="#ffffff"
+                  >
+                    <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <h1 id="appetizer" className="fontTitr font-bold text-3xl text-center ">
+          پیش غذا
+        </h1>
+  
+        <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+          {appetizer.map((item) => (
+            <div
+              key={item.id}
+              className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+            >
+              {/* عکس غذا */}
+              <div className="w-40 h-40 shrink-0">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-r-xl"
+                />
+              </div>
+  
+              {/* جزئیات غذا */}
+              <div className="flex flex-col justify-between p-4 w-full">
+                <div>
+                  <h2 className="fontTitr font-bold text-lg mb-2">
+                    {item.title}
+                  </h2>
+                  <p className="fontText text-gray-700">
+                    {item.price.toLocaleString()} <span>تومان</span>
+                  </p>
+                </div>
+  
+                {/* دکمه افزودن */}
+                <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                  افزودن
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="20px"
+                    viewBox="0 -960 960 960"
+                    width="20px"
+                    fill="#ffffff"
+                  >
+                    <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <h1 id="drink" className="fontTitr font-bold text-3xl text-center ">
+          نوشیدنی
+        </h1>
+        <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+          {drink.map((item) => (
+            <div
+              key={item.id}
+              className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+            >
+              {/* عکس غذا */}
+              <div className="w-40 h-40 shrink-0">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-r-xl"
+                />
+              </div>
+  
+              {/* جزئیات غذا */}
+              <div className="flex flex-col justify-between p-4 w-full">
+                <div>
+                  <h2 className="fontTitr font-bold text-lg mb-2">
+                    {item.title}
+                  </h2>
+                  <p className="fontText text-gray-700">
+                    {item.price.toLocaleString()} <span>تومان</span>
+                  </p>
+                </div>
+  
+                {/* دکمه افزودن */}
+                <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                  افزودن
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="20px"
+                    viewBox="0 -960 960 960"
+                    width="20px"
+                    fill="#ffffff"
+                  >
+                    <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  }
+function Karamoozian() {
+  return (
+    <>
+      <RestaurantBanner />
+      <RestaurantProfile />
+      <MenuTabs />
+      <Menu />
+    </>
+  );
+}
+export { Karamoozian };

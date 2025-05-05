@@ -16,21 +16,61 @@ let useTheme = create<ThemeState>((set, get) => ({
 }))
 
 
-type ModalType = 'login' | 'register' | null;
+type FormData = {
+  username: string;
+  password: string;
+  confirmPassword: string;
+};
 
-interface ModalStore {
+type Store = {
+  formData: FormData;
+  setFormData: (data: Partial<FormData>) => void;
+};
+
+ const useFormStore = create<Store>((set) => ({
+  formData: {
+    username: "",
+    password: "",
+    confirmPassword: "",
+  },
+  setFormData: (data) =>
+    set((state) => ({
+      formData: { ...state.formData, ...data },
+    })),
+}));
+
+
+
+type ModalState = {
   isOpen: boolean;
-  type: ModalType;
-  openModal: (type: ModalType) => void;
+  type: null | 'login' | 'register' | 'password';
+  openModal: (type: 'login' | 'register' | 'password') => void;
   closeModal: () => void;
-}
+};
 
- const useModalStore = create<ModalStore>((set) => ({
+const useModalStore = create<ModalState>((set) => ({
   isOpen: false,
   type: null,
   openModal: (type) => set({ isOpen: true, type }),
   closeModal: () => set({ isOpen: false, type: null }),
 }));
 
+type UserStore = {
+  isLoggedIn: boolean;
+  login: () => void;
+  logout: () => void;
+};
+
+ const useUserStore = create<UserStore>((set) => ({
+  isLoggedIn: false,
+  login: () => set({ isLoggedIn: true }),
+  logout: () => set({ isLoggedIn: false }),
+}));
+
+
+
 export { useTheme }
 export { useModalStore }
+export { useUserStore }
+export { useFormStore }
+

@@ -4,7 +4,7 @@ import axios from "axios";
 
 let time = new Date();
 function openingHours() {
-  if (time.getHours() >= 8 && time.getHours() <= 22) {
+  if (time.getHours() >= 9 && time.getHours() <= 22) {
     return true;
   } else {
     return false;
