@@ -1,5 +1,19 @@
 import "../../CSS/App.css";
-import { useState } from "react";
+
+import ascari from '../../assets/images/RS-Ascari.jpg'
+import soltaniKabab from '../../assets/images/food/soltaniKabab.jpg'
+import joojehChelo from '../../assets/images/food/joojehChelo.jpg'
+import sabzi from '../../assets/images/food/sabzi.jpg'
+import gheymeh from '../../assets/images/food/gheymeh.jpg'
+import kashkBademjoon from '../../assets/images/food/kashkBademjan.jpg'
+import saladFasl from '../../assets/images/food/saladFasl.jpg'
+import felfel from '../../assets/images/food/felfel.jpg'
+import jeleh from '../../assets/images/food/jeleh.jpg'
+import nan from '../../assets/images/food/Nan.jpg'
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import wather from '../../assets/images/food/wather.jpg'
+import dooghAlis from '../../assets/images/food/dooghAlis.jpg'
+import { Footer } from "../Home";
 type menu = {
   id: number;
   title: string;
@@ -11,31 +25,31 @@ let food: menu[] = [
   {
     id: 1,
     title: "چلوکباب سلطانی",
-    image: "/src/assets/images/food/soltaniKabab.jpg",
+    image: soltaniKabab,
     price: 210000,
   },
   {
     id: 2,
     title: "چلوجوجه ",
-    image: "/src/assets/images/food/joojehChelo.jpg",
+    image: joojehChelo,
     price: 180000,
   },
   {
     id: 3,
     title: "چلوخورشت سبزی",
-    image: "/src/assets/images/food/sabzi.jpg",
+    image: sabzi,
     price: 140000,
   },
   {
     id: 4,
     title: "چلوخورشت قیمه",
-    image: "/src/assets/images/food/gheymeh.jpg",
+    image: gheymeh,
     price: 150000,
   },
   {
     id: 5,
     title: "کشک و بادمجان",
-    image: "/src/assets/images/food/kashkBademjan.jpg",
+    image: kashkBademjoon,
     price: 80000,
   },
 ];
@@ -43,25 +57,25 @@ let appetizer: menu[] = [
   {
     id: 1,
     title: "سالاد فصل",
-    image: "/src/assets/images/food/saladFasl.jpg",
+    image: saladFasl,
     price: 45000,
   },
   {
     id: 2,
     title: "فلفل سبز",
-    image: "/src/assets/images/food/felfel.jpg",
+    image: felfel,
     price: 20000,
   },
   {
     id: 3,
     title: "ژله",
-    image: "/src/assets/images/food/jeleh.jpg",
+    image: jeleh,
     price: 35000,
   },
   {
     id: 4,
     title: "نان اضافه",
-    image: "/src/assets/images/food/Nan.jpg",
+    image: nan,
     price: 5000,
   },
 ];
@@ -69,19 +83,19 @@ let drink: menu[] = [
   {
     id: 1,
     title: "نوشابه قوطی 150میلی لیتر",
-    image: "/src/assets/images/food/nooshabeh.jpg",
+    image: nooshabeh,
     price: 28000,
   },
   {
     id: 2,
     title: "آب معدنی",
-    image: "/src/assets/images/food/wather.jpg",
+    image: wather,
     price: 6000,
   },
   {
     id: 3,
     title: "دوغ عالیس",
-    image: "/src/assets/images/food/dooghAlis.jpg",
+    image: dooghAlis,
     price: 49000,
   },
 ];
@@ -91,7 +105,7 @@ function RestaurantBanner() {
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/RS-Ascari.jpg"
+          src={ascari}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -113,7 +127,7 @@ function RestaurantProfile() {
   const restaurant = {
     id: 1,
     title: "رستوران عسکری راد",
-    image: "/src/assets/images/RS-Ascari.jpg",
+    image: ascari,
     location: "میدان رسالت",
     score: 4.8,
     patch: "/Rasturants/Ascari",
@@ -387,6 +401,7 @@ function Ascari() {
       <RestaurantProfile />
       <MenuTabs />
       <Menu />
+      <Footer />
     </>
   );
 }

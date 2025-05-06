@@ -1,11 +1,94 @@
 import "../../CSS/App.css";
+import { Footer } from "../Home";
+import  refah  from "../../assets/images/SPMarket-Refah.jpg";
+import chips from '../../assets/images/food/chips.jpg';
+import pofak from '../../assets/images/food/pofak.jpg';
+import zobaleh from '../../assets/images/food/zobaleh.jpg';
+import dastmal from '../../assets/images/food/dastmal.jpg';
+import lapeh from '../../assets/images/food/lapeh.jpg';
+import loobia from '../../assets/images/food/loobia.jpg';
+import delester from '../../assets/images/food/delester.jpg';
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import water from '../../assets/images/food/wather.jpg'
+type menu = {
+  id: number;
+  title: string;
+  image: string;
+  ditales?: string;
+  price: number;
+};
+let khoraki: menu[] = [
+  {
+    id: 1,
+    title: "چیپس",
+    image: chips,
+    price: 38000,
+  },
+  {
+    id: 2,
+    title: "پفک نمکی",
+    image: pofak,
+    price: 65000,
+  },
+  
+];
+let helthy: menu[] = [
+  {
+    id: 1,
+    title: "دستمال کاغذی",
+    image: dastmal,
+    price: 18000,
+  },
+  {
+    id: 2,
+    title: "پاکت زباله",
+    image: zobaleh,
+    price: 33000,
+  },
+  
+];
+let drink: menu[] = [
+  {
+    id: 1,
+    title: "نوشابه قوطی 150میلی لیتر",
+    image: nooshabeh,
+    price: 28000,
+  },
+  {
+    id: 2,
+    title: "آب معدنی",
+    image: water,
+    price: 6000,
+  },
+  {
+    id: 2,
+    title: "دلستر",
+    image: delester,
+    price: 25000,
+  },
+];
+let hoboobat: menu[] = [
+  {
+    id: 1,
+    title: "لپه",
+    image: lapeh,
+    price: 28000,
+  },
+  {
+    id: 2,
+    title: " لوبیا",
+    image: loobia,
+    price: 6000,
+  },
+  
+];
 function MarketBanner() {
   return (
     <section className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden">
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/SPMarket-Refah.jpg"
+          src={refah}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -27,7 +110,7 @@ function MarketProfile() {
   const Market = {
     id: 1,
     title: "فروشگاه رفاه",
-    image: "/src/assets/images/SPMarket-Refah.jpg",
+    image: refah,
     location: "پارک مطهری",
     score: 3.9,
     patch: "/Markets/Refah",
@@ -103,7 +186,7 @@ function MarketProfile() {
 
         <div className="flex flex-wrap gap-4 mt-2">
           <button className="bg-orange-500  hover:bg-orange-600 transition px-4 py-2 rounded-lg text-white font-semibold">
-            <a href="#">منوی فروشگاه</a>
+            <a href="#khoraki">منوی فروشگاه</a>
           </button>
           <button className="bg-slate-600  hover:bg-slate-700 transition px-4 py-2 rounded-lg text-white font-semibold">
             <a href="#">نظرات کاربران</a>
@@ -125,21 +208,218 @@ function MenuTabs() {
         {/* دکمه‌ها */}
         <div className="flex justify-center flex-wrap gap-2 text-2xl">
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">خوراکی</a>
+            <a href="#khoraki">خوراکی</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">نوشیدنی</a>
+            <a href="#drink">نوشیدنی</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">بهداشتی</a>
+            <a href="#helthy">بهداشتی</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">حبوبات</a>
+            <a href="#hoboobat">حبوبات</a>
           </button>
-          <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">لبنیات</a>
-          </button>
+
         </div>
+      </div>
+    </>
+  );
+}
+function Menu() {
+  return (
+    <>
+      
+      <h1 id="khoraki" className="fontTitr font-bold text-3xl text-center ">
+         خوراکی
+      </h1>
+
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {khoraki.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <h1 id="drink" className="fontTitr font-bold text-3xl text-center ">
+          نوشیدنی
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {drink.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
+      </div>
+      <h1 id="helthy" className="fontTitr font-bold text-3xl text-center ">
+         بهداشتی
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {helthy.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
+      </div>
+      <h1 id="hoboobat" className="fontTitr font-bold text-3xl text-center ">
+         حبوبات
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {hoboobat.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
       </div>
     </>
   );
@@ -150,6 +430,8 @@ function Refah() {
       <MarketBanner />
       <MarketProfile />
       <MenuTabs />
+      <Menu />
+      <Footer />
     </>
   );
 }

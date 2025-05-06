@@ -1,9 +1,8 @@
-import { useState } from 'react'
+
 import './CSS/App.css'
 import { BrowserRouter } from 'react-router-dom'
 
-import { Navbar } from './components/Navbar' // Adjust the path as needed
-import { Home } from './Pages/Home'
+// Adjust the path as needed
 import { MyRouter } from './Routes/MyRouter'
 function App() {
   return (

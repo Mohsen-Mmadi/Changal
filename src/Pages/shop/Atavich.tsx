@@ -1,11 +1,106 @@
 import "../../CSS/App.css";
+import { Footer } from "../Home";
+import atavitchSmall from '../../assets/images/FSFood-AtavichSmall.jpg';
+import pizzaRostbif from '../../assets/images/food/rostbif.jpg'
+import pizzaSiroestak from '../../assets/images/food/siroEsteyk.jpg'
+import pizzaPeperoni from '../../assets/images/food/peperoni.jpg'
+import bandari from '../../assets/images/food/bandari.jpg'
+import hotdog from '../../assets/images/food/hotdog.jpg'
+import sandevitchMorgh from '../../assets/images/food/sandevitchMorgh.jpg'
+import gharchSokhari from '../../assets/images/food/gharchSookhari.jpg'
+import sosSir from '../../assets/images/food/sosSir.jpg'
+import sibSorkhShodeh from '../../assets/images/food/sibsorkhshodeh.jpg'
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import water from '../../assets/images/food/wather.jpg'
+
+type menu = {
+  id: number;
+  title: string;
+  image: string;
+  ditales?: string;
+  price: number;
+};
+let pizza: menu[] = [
+  {
+    id: 1,
+    title: "پیتزا رست بیف",
+    image: pizzaRostbif,
+    price: 220000,
+  },
+  {
+    id: 2,
+    title: "پیتزا پپرونی ",
+    image: pizzaPeperoni,
+    price: 315000,
+  },
+  {
+    id: 3,
+    title: "پیتزا سیر و استیک ",
+    image: pizzaSiroestak,
+    price: 240000,
+  },
+];
+let sandevitch: menu[] = [
+  {
+    id: 1,
+    title: "ساندویچ بندری ",
+    image:bandari,
+    price: 93000,
+  },
+  {
+    id: 2,
+    title: "هات داگ پنیری",
+    image: hotdog,
+    price: 87000,
+  },
+  {
+    id: 3,
+    title: "ساندویچ مرغ",
+    image: sandevitchMorgh,
+    price: 75000,
+  },
+];
+let appetizer: menu[] = [
+  {
+    id: 1,
+    title: "قارچ سوخاری",
+    image: gharchSokhari,
+    price: 70000,
+  },
+  {
+    id: 2,
+    title: "سس سیر",
+    image: sosSir,
+    price: 6000,
+  },
+  {
+    id: 3,
+    title: "سیب سرخ شده",
+    image: sibSorkhShodeh,
+    price: 110000,
+  },
+];
+let drink: menu[] = [
+  {
+    id: 1,
+    title: "نوشابه قوطی 150میلی لیتر",
+    image: nooshabeh,
+    price: 28000,
+  },
+  {
+    id: 2,
+    title: "آب معدنی",
+    image: water,
+    price: 6000,
+  },
+];
 function FastfoodBanner() {
   return (
     <section className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden">
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/FSFood-AtavichSmall.jpg"
+          src={atavitchSmall}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -27,7 +122,7 @@ function FastfoodProfile() {
   const fastfood = {
     id: 1,
     title: "فست فود عطاویچ",
-    image: "/src/assets/images/FSFood-AtavichSmall.jpg",
+    image: atavitchSmall,
     location: "بلوار شیراز",
     score: 4.7,
     patch: "/Rasturants/Atavitch",
@@ -103,7 +198,7 @@ function FastfoodProfile() {
 
         <div className="flex flex-wrap gap-4 mt-2">
           <button className="bg-orange-500  hover:bg-orange-600 transition px-4 py-2 rounded-lg text-white font-semibold">
-            <a href="#">منوی رستوران</a>
+            <a href="#pizza">منوی رستوران</a>
           </button>
           <button className="bg-slate-600  hover:bg-slate-700 transition px-4 py-2 rounded-lg text-white font-semibold">
             <a href="#">نظرات کاربران</a>
@@ -125,18 +220,216 @@ function MenuTabs() {
         {/* دکمه‌ها */}
         <div className="flex justify-center flex-wrap gap-2 text-2xl">
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">پیتزا</a>
+            <a href="#pizza">پیتزا</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">ساندویچ</a>
+            <a href="#sandevitch">ساندویچ</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">پیش غذا</a>
+            <a href="#appetizer">پیش غذا</a>
           </button>
           <button className="px-4 py-2 border-4 border-orange-500 bg-orange-300 rounded-md hover:opacity-95">
-            <a href="#">نوشیدنی</a>
+            <a href="#drink">نوشیدنی</a>
           </button>
         </div>
+      </div>
+    </>
+  );
+}
+function Menu() {
+  return (
+    <>
+      <h1 id="pizza" className="fontTitr font-bold text-3xl text-center ">
+        پیتزا
+      </h1>
+
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-3">
+        {pizza.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <h1 id="sandevitch" className="fontTitr font-bold text-3xl text-center ">
+        ساندویچ
+      </h1>
+
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {sandevitch.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <h1 id="appetizer" className="fontTitr font-bold text-3xl text-center ">
+        پیش غذا
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {appetizer.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
+      </div>
+      <h1 id="drink" className="fontTitr font-bold text-3xl text-center ">
+         نوشیدنی
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {drink.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
       </div>
     </>
   );
@@ -147,6 +440,8 @@ function Atavich() {
       <FastfoodBanner />
       <FastfoodProfile />
       <MenuTabs />
+      <Menu />
+      <Footer />
     </>
   );
 }

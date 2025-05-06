@@ -1,6 +1,9 @@
 import { Outlet,Link } from "react-router-dom";
 import { Footer } from "./Home";
-
+import refah from '../assets/images/SPMarket-Refah.jpg'
+import dailymarket from '../assets/images/SPMarket-DailyMarket.jpg'
+import ofoghkoorosh from '../assets/images/SPMarket-OfoghKoorosh.jpg'
+import yeganmarket from '../assets/images/SPMarket-yeganMarket.jpg'
 
 let time = new Date();
 function openingHours() {
@@ -23,7 +26,7 @@ let mySelectedMarkets: Market[] = [
     {
         id: 1,
         title: "فروشگاه رفاه",
-        image: "/src/assets/images/SPMarket-Refah.jpg",
+        image: refah,
         location: "پارک مطهری",
         score: 3.9,
         patch: "/Markets/Refah",
@@ -32,7 +35,7 @@ let mySelectedMarkets: Market[] = [
       {
         id: 2,
         title: "یگان مارکت",
-        image: "/src/assets/images/SPMarket-yeganMarket.jpg",
+        image: yeganmarket,
         location: "خیابان ویلا",
         score: 5,
         patch: "/Markets/YeganMarket",
@@ -45,7 +48,7 @@ let mySelectedMarkets: Market[] = [
     {
         id: 1,
         title: "فروشگاه رفاه",
-        image: "/src/assets/images/SPMarket-Refah.jpg",
+        image: refah,
         location: "پارک مطهری",
         score: 3.9,
         patch: "/Markets/Refah",
@@ -54,7 +57,7 @@ let mySelectedMarkets: Market[] = [
       {
         id: 2,
         title: "فروشگاه دیلی مارکت",
-        image: "/src/assets/images/SPMarket-DailyMarket.jpg",
+        image: dailymarket,
         location: "بلوار نبوت",
         score: 4.8,
         patch: "/Markets/DailyMarket",
@@ -63,7 +66,7 @@ let mySelectedMarkets: Market[] = [
       {
         id: 3,
         title: "فروشگاه افق کوروش",
-        image: "/src/assets/images/SPMarket-OfoghKoorosh.jpg",
+        image: ofoghkoorosh,
         location: "خیابان ابوذر",
         score: 4.4,
         patch: "/Markets/OfoghKoorosh",
@@ -72,7 +75,7 @@ let mySelectedMarkets: Market[] = [
       {
         id: 4,
         title: "یگان مارکت",
-        image: "/src/assets/images/SPMarket-yeganMarket.jpg",
+        image: yeganmarket,
         location: "خیابان ویلا",
         score: 5,
         patch: "/Markets/YeganMarket",

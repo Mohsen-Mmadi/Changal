@@ -1,6 +1,20 @@
 import { useState } from "react";
 import {  Link,useNavigate  } from "react-router-dom";
 import { useModalStore,useUserStore,useFormStore} from "../Store";
+import fork from '../../public/Changal.png'
+import resturan from '../assets/Icons/Restaurant-icon.png'
+import fastfood from '../assets/Icons/FastFood-icon.png'
+import cofee from '../assets/Icons/Cofee-icon.png'
+import market from '../assets/Icons/Market-icon.png'
+import heroSection from '../assets/images/showCase-picture.jpg'
+import motorsiclet from '../assets/images/motorcycleCourier.png'
+import ascari from '../assets/images/RS-Ascari.jpg'
+import fenjaneh from '../assets/images/Cafee-Fenjaneh.jpg'
+import refah from '../assets/images/SPMarket-Refah.jpg'
+import atavitch from '../assets/images/FSFood-Atavich.jpg'
+import sibsalamat from '../assets/images/sibeSalamat.png'
+import estandard from '../assets/images/estandard.png'
+import enamad from '../assets/images/iconEtemad.png'
 // مسیر دقیق فایل استور
 
 let time = new Date();
@@ -32,25 +46,25 @@ let categuries: categury[] = [
   {
     id: 1,
     title: "رستوران",
-    icon: "/src/assets/Icons/Restaurant-icon.png",
+    icon: resturan,
     patch: "/Rasturants",
   },
   {
     id: 2,
     title: "فست فود",
-    icon: "/src/assets/Icons/FastFood-icon.png",
+    icon: fastfood,
     patch: "/Fastfoods",
   },
   {
     id: 3,
     title: "کافه",
-    icon: "/src/assets/Icons/Cofee-icon.png",
+    icon: cofee,
     patch: "/Cafees",
   },
   {
     id: 4,
     title: "سوپر مارکت",
-    icon: "/src/assets/Icons/Market-icon.png",
+    icon: market,
     patch: "/Markets",
   },
 ];
@@ -58,7 +72,7 @@ let myArounds: myAround[] = [
   {
     id: 1,
     title: "رستوران عسکری راد",
-    image: "/src/assets/images/RS-Ascari.jpg",
+    image: ascari,
     location: "میدان رسالت",
     score: 4.8,
     patch: "/Rasturants/Ascari",
@@ -67,7 +81,7 @@ let myArounds: myAround[] = [
   {
     id: 2,
     title: "کافه فنجانه",
-    image: "/src/assets/images/Cafee-Fenjaneh.jpg",
+    image: fenjaneh,
     location: "شهرک مطهری",
     score: 4.1,
     patch: "/Cafees/Fenjaneh",
@@ -76,7 +90,7 @@ let myArounds: myAround[] = [
   {
     id: 3,
     title: "فروشگاه رفاه",
-    image: "/src/assets/images/SPMarket-Refah.jpg",
+    image: refah,
     location: "پارک مطهری",
     score: 3.9,
     patch: "/Markets/Refah",
@@ -85,7 +99,7 @@ let myArounds: myAround[] = [
   {
     id: 4,
     title: "فست فود عطاویچ",
-    image: "/src/assets/images/FSFood-Atavich.jpg",
+    image: atavitch,
     location: "بلوار شیراز",
     score: 4.7,
     patch: "/Fastfoods/Atavich",
@@ -235,7 +249,7 @@ function HeroSection() {
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/showCase-picture.jpg"
+          src={heroSection}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -280,7 +294,7 @@ function CTASection() {
         </div>
         <div className="p-5 justify-center m-auto ">
           <img
-            src="/src/assets/images/motorcycleCourier.png"
+            src={motorsiclet}
             alt="motorcycle"
           />
         </div>
@@ -467,53 +481,6 @@ function OfferCard() {
   );
 }
 function Footer() {
-  // return (
-  //   <>
-  //     <footer className="componentColor mb-0 p-2">
-  //       <div className="grid grid-rows-1">
-  //         <div className="row-start-1 row-end-3 col-span-4 bg-red-600">
-  //           <div className="  md:m-0 flex flex-col items-center gap-2 font-bold text-5xl fontBrand textBrand">
-  //             {/* لوگو */}
-  //             <span className="">Changal</span>
-  //             <img
-  //               src="/src/assets/Icons/Changal.svg"
-  //               alt="fork"
-  //               className=" w-[17rem] h-[17rem]  p-0"
-  //             />
-  //           </div>
-  //         </div>
-  //         <div className="grid-cols-8 bg-blue-500">
-  //           <div className="grid grid-cols-3 bg-green-500">
-  //             <div>
-  //               <ul>
-  //                 <li>dddddd</li>
-  //                 <li>dddddws</li>
-  //               </ul>
-  //             </div>
-  //             <div>
-  //               <ul>
-  //                 <li>ww</li>
-  //                 <li>qq</li>
-  //               </ul>
-  //             </div>
-  //             <div>
-  //               <ul>
-  //                 <li>sssa</li>
-  //                 <li>dcfdfd</li>
-  //               </ul>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <div id="Mojavez">
-  //           <img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
-  //         </div>
-  //         <div id="copyRight">
-
-  //         </div>
-  //       </div>
-  //     </footer>
-  //   </>
-  // );
   return (
     <>
       <footer className="componentColor p-4 mt-10">
@@ -524,7 +491,7 @@ function Footer() {
               Changal
             </span>
             <img
-              src="/src/assets/Icons/Changal.svg"
+              src={fork}
               alt="fork"
               className="w-40 h-40"
             />
@@ -536,16 +503,16 @@ function Footer() {
               <h4 className="font-semibold text-lg mb-2">مجموعه ها</h4>
               <ul className="space-y-1">
                 <li>
-                  <a href="#">رستوران</a>
+                  <Link to={'/Rasturants'}><a href="#">رستوران</a></Link>
                 </li>
                 <li>
-                  <a href="#">فست فود</a>
+                  <Link to={'/Fastfoods'}><a href="#">فست فود</a></Link>
                 </li>
                 <li>
-                  <a href="#">کافه</a>
+                  <Link to={'/Cofees'}><a href="#">کافه</a></Link>
                 </li>
                 <li>
-                  <a href="#">سوپر مارکت</a>
+                  <Link to={'/Markets'}><a href="#">سوپر مارکت</a></Link>
                 </li>
               </ul>
             </div>
@@ -553,16 +520,16 @@ function Footer() {
               <h4 className="font-semibold text-lg mb-2">مجموعه های منتخب</h4>
               <ul className="space-y-1">
                 <li>
-                  <a href="#">رستوران عسکری راد</a>
+                  <Link to={'/Rasturants/Ascari'}><a href="#">رستوران عسکری راد</a></Link>
                 </li>
                 <li>
-                  <a href="#">فست فود عطاویچ</a>
+                  <Link to={'/Fastfoods/Atavitch'}><a href="#">فست فود عطاویچ</a></Link>
                 </li>
                 <li>
-                  <a href="#">کافه جاکارتو</a>
+                  <Link to={'/Cafees/Jacarto'}><a href="#">کافه جاکارتو</a></Link>
                 </li>
                 <li>
-                  <a href="#">فروشگاه افق کوروش</a>
+                  <Link to={'/Markets/OfoghKoorosh'}><a href="#">فروشگاه افق کوروش</a></Link>
                 </li>
               </ul>
             </div>
@@ -592,17 +559,17 @@ function Footer() {
         {/* مجوزها */}
         <div className="flex justify-end items-center gap-6 mt-6">
           <img
-            src="/src/assets/images/sibeSalamat.png"
+            src={sibsalamat}
             alt="mojavez3"
             className="w-20 h-20"
           />
           <img
-            src="/src/assets/images/iconEtemad.png"
+            src={enamad}
             alt="mojavez2"
             className="w-20 h-20"
           />
           <img
-            src="/src/assets/images/estandard.png"
+            src={estandard}
             alt="mojavez1"
             className="w-20 h-20"
           />

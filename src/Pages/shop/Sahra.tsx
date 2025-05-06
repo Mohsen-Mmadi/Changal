@@ -1,4 +1,19 @@
 import "../../CSS/App.css";
+import sahra from '../../assets/images/RS-Sahra.jpg'
+import bakhtiyari from '../../assets/images/food/bakhtiyari.jpg'
+import kasehkabab from '../../assets/images/food/kasehKabab.jpg'
+import chelobarg from '../../assets/images/food/chelobarg.jpg'
+import poloMahi from '../../assets/images/food/poloMahi.jpg'
+import makarooni from '../../assets/images/food/makarooni.jpg'
+import saladShirazi from '../../assets/images/food/saladShirazi.jpg'
+import mastmoosir from '../../assets/images/food/mastMoosir.jpg'
+import jeleh from '../../assets/images/food/jeleh.jpg'
+import nan from '../../assets/images/food/Nan.jpg'
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import wather from '../../assets/images/food/wather.jpg'
+import dooghMahali from '../../assets/images/food/dooghMahali.jpg'
+import { Footer } from "../Home";
+
 type menu = {
     id: number;
     title: string;
@@ -10,32 +25,32 @@ type menu = {
     {
       id: 1,
       title: "بختیاری",
-      image: "/src/assets/images/food/bakhtiyari.jpg",
+      image: bakhtiyari,
       price: "240,000",
     },
     {
       id: 2,
       title: "چلو برگ",
-      image: "/src/assets/images/food/cheloBarg.jpg",
+      image: chelobarg,
       price: "197,000",
     },
     {
       id: 3,
       title: "کاسه کباب اردبیلی",
-      image: "/src/assets/images/food/kasehKabab.jpg",
+      image: kasehkabab,
       price: "320,000",
     },
     {
       id: 4,
       title: "سبزی پلو با ماهی",
       ditales:'ماهی هوور و برنج ایرانی',
-      image: "/src/assets/images/food/poloMahi.jpg",
+      image: poloMahi,
       price: "225,000",
     },
     {
       id: 5,
       title: "ماکارانی",
-      image: "/src/assets/images/food/makarooni.jpg",
+      image:makarooni,
       price: "43,000",
     },
   ];
@@ -43,25 +58,25 @@ type menu = {
     {
       id: 1,
       title: "سالاد شیرازی",
-      image: "/src/assets/images/food/saladShirazi.jpg",
+      image: saladShirazi,
       price: "38,000",
     },
     {
       id: 2,
       title: "ماست موسیر",
-      image: "/src/assets/images/food/mastMoosir.jpg",
+      image: mastmoosir,
       price: "15,000",
     },
     {
       id: 3,
       title: "ژله",
-      image: "/src/assets/images/food/jeleh.jpg",
+      image: jeleh,
       price: "33,000",
     },
     {
       id: 4,
       title: "نان اضافه",
-      image: "/src/assets/images/food/Nan.jpg",
+      image: nan,
       price: "5,000",
     },
   ];
@@ -69,19 +84,19 @@ type menu = {
     {
       id: 1,
       title: "نوشابه قوطی 150میلی لیتر",
-      image: "/src/assets/images/food/nooshabeh.jpg",
+      image: nooshabeh,
       price: "28,000",
     },
     {
       id: 2,
       title: "آب معدنی",
-      image: "/src/assets/images/food/wather.jpg",
+      image: wather,
       price: "6,000",
     },
     {
       id: 3,
       title: "دوغ محلی",
-      image: "/src/assets/images/food/dooghMahali.jpg",
+      image: dooghMahali,
       price: "50,000",
     },
   ];
@@ -91,7 +106,7 @@ function RestaurantBanner() {
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/RS-Sahra.jpg"
+          src={sahra}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -113,7 +128,7 @@ function RestaurantProfile() {
   const restaurant = {
     id: 1,
     title: "رستوران صحرا ",
-    image: "/src/assets/images/RS-Sahra.jpg",
+    image:sahra,
     location: "خیابان 24 آذر",
     score: 4.2,
     patch: "/Rasturants/Sahra",
@@ -189,7 +204,7 @@ function RestaurantProfile() {
 
         <div className="flex flex-wrap gap-4 mt-2">
           <button className="bg-orange-500  hover:bg-orange-600 transition px-4 py-2 rounded-lg text-white font-semibold">
-            <a href="#">منوی رستوران</a>
+            <a href="#orginalFood">منوی رستوران</a>
           </button>
           <button className="bg-slate-600  hover:bg-slate-700 transition px-4 py-2 rounded-lg text-white font-semibold">
             <a href="#">نظرات کاربران</a>
@@ -380,6 +395,7 @@ function Sahra() {
       <RestaurantProfile />
       <MenuTabs />
       <Menu />
+      <Footer />
     </>
   );
 }

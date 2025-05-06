@@ -1,6 +1,9 @@
 import { Outlet,Link } from "react-router-dom";
 import { Footer } from "./Home";
-import axios from "axios";
+import ascari from '../assets/images/RS-Ascari.jpg'
+import karamoozian from '../assets/images/RS-Karamoozian.jpg'
+import max from '../assets/images/RS-Max.jpg'
+import sahra from '../assets/images/RS-Sahra.jpg'
 
 let time = new Date();
 function openingHours() {
@@ -23,7 +26,7 @@ let mySelectedRestaurant: Restaurant[] = [
     {
       id: 1,
       title: "رستوران عسکری راد",
-      image: "/src/assets/images/RS-Ascari.jpg",
+      image:ascari,
       location: "میدان رسالت",
       score: 4.8,
       patch: "/Rasturants/Ascari",
@@ -32,7 +35,7 @@ let mySelectedRestaurant: Restaurant[] = [
     {
       id: 2,
       title: "رستوران کارآموزیان",
-      image: "/src/assets/images/RS-Karamoozian.jpg",
+      image: karamoozian,
       location: "میدان قرنی",
       score: 4.5,
       patch: "/Rasturants/Karamoozian",
@@ -45,7 +48,7 @@ let mySelectedRestaurant: Restaurant[] = [
     {
         id: 1,
         title: "رستوران عسکری راد",
-        image: "/src/assets/images/RS-Ascari.jpg",
+        image: ascari,
         location: "میدان رسالت",
         score: 4.8,
         patch: "/Rasturants/Ascari",
@@ -54,7 +57,7 @@ let mySelectedRestaurant: Restaurant[] = [
       {
         id: 2,
         title: "رستوران کارآموزیان",
-        image: "/src/assets/images/RS-Karamoozian.jpg",
+        image: karamoozian,
         location: "میدان قرنی",
         score: 4.5,
         patch: "/Rasturants/Karamoozian",
@@ -63,7 +66,7 @@ let mySelectedRestaurant: Restaurant[] = [
       {
         id: 3,
         title: "رستوران سنتی مکث",
-        image: "/src/assets/images/RS-Max.jpg",
+        image: max,
         location: "بلوار جمهوری",
         score: 4,
         patch: "/Rasturants/Max",
@@ -72,7 +75,7 @@ let mySelectedRestaurant: Restaurant[] = [
       {
         id: 4,
         title: "رستوران صحرا",
-        image: "/src/assets/images/RS-Sahra.jpg",
+        image: sahra,
         location: "خیابان 24 آذر",
         score: 4.2,
         patch: "/Rasturants/Sahra",

@@ -1,4 +1,18 @@
 import "../../CSS/App.css";
+import karamoozian from '../../assets/images/RS-Karamoozian.jpg'
+import mix from '../../assets/images/food/cheloMix.jpg'
+import cheloGoosht from '../../assets/images/food/cheloGoosht.jpg'
+import cheloMorgh from '../../assets/images/food/cheloMorgh.jpg'
+import adaspolo from '../../assets/images/food/adasPolo.jpg'
+import mirzaghasemi from '../../assets/images/food/mirzaghasemi.jpg'
+import jeleh from '../../assets/images/food/jeleh.jpg'
+import nan from '../../assets/images/food/Nan.jpg'
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import wather from '../../assets/images/food/wather.jpg'
+import saladShirazi from '../../assets/images/food/saladShirazi.jpg'
+import zeytoon from '../../assets/images/food/zeytoon.jpg'
+import dooghmahali from '../../assets/images/food/dooghMahali.jpg'
+import { Footer } from "../Home";
 type menu = {
     id: number;
     title: string;
@@ -10,31 +24,31 @@ type menu = {
     {
       id: 1,
       title: "چلوکباب میکس",
-      image: "/src/assets/images/food/cheloMix.jpg",
+      image: mix,
       price: "250,000",
     },
     {
       id: 2,
       title: "چلو گوشت زرندی ",
-      image: "/src/assets/images/food/cheloGoosht.jpg",
+      image: cheloGoosht,
       price: "270,000",
     },
     {
       id: 3,
       title: "چلو مرغ",
-      image: "/src/assets/images/food/cheloMorgh.jpg",
+      image: cheloMorgh,
       price: "160,000",
     },
     {
       id: 4,
       title: "عدس پلو",
-      image: "/src/assets/images/food/adasPolo.jpg",
+      image: adaspolo,
       price: "70,000",
     },
     {
       id: 5,
       title: "میرزاقاسمی",
-      image: "/src/assets/images/food/mirzaghasemi.jpg",
+      image: mirzaghasemi,
       price: "95,000",
     },
   ];
@@ -42,25 +56,25 @@ type menu = {
     {
       id: 1,
       title: "سالاد شیرازی",
-      image: "/src/assets/images/food/saladShirazi.jpg",
+      image: saladShirazi,
       price: "40,000",
     },
     {
       id: 2,
       title: "زیتون پرورده",
-      image: "/src/assets/images/food/zeytoon.jpg",
+      image: zeytoon,
       price: "48,000",
     },
     {
       id: 3,
       title: "ژله",
-      image: "/src/assets/images/food/jeleh.jpg",
+      image: jeleh,
       price: "35,000",
     },
     {
       id: 4,
       title: "نان اضافه",
-      image: "/src/assets/images/food/Nan.jpg",
+      image: nan,
       price: "5,000",
     },
   ];
@@ -68,19 +82,19 @@ type menu = {
     {
       id: 1,
       title: "نوشابه قوطی 150میلی لیتر",
-      image: "/src/assets/images/food/nooshabeh.jpg",
+      image: nooshabeh,
       price: "28,000",
     },
     {
       id: 2,
       title: "آب معدنی",
-      image: "/src/assets/images/food/wather.jpg",
+      image: wather,
       price: "6,000",
     },
     {
       id: 3,
       title: "دوغ محلی",
-      image: "/src/assets/images/food/dooghMahali.jpg",
+      image: dooghmahali,
       price: "55,000",
     },
   ];
@@ -90,7 +104,7 @@ function RestaurantBanner() {
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/RS-Karamoozian.jpg"
+          src={karamoozian}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -112,7 +126,7 @@ function RestaurantProfile() {
   const restaurant = {
     id: 1,
     title: "رستوران کارآموزیان",
-    image: "/src/assets/images/RS-KaramoozianSmall.jpg",
+    image: karamoozian,
     location: "میدان قرنی",
     score: 4.5,
     patch: "/Rasturants/Karamoozian",
@@ -376,6 +390,7 @@ function Karamoozian() {
       <RestaurantProfile />
       <MenuTabs />
       <Menu />
+      <Footer />
     </>
   );
 }

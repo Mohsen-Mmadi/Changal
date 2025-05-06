@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../CSS/App.css";
-import { useTheme } from "../Store";
 import { useModalStore, useUserStore, useFormStore} from "../Store";
-import { AuthModal } from "../Pages/Home";
+import fork from '../../public/Changal.png'
 
 // function ChangalTheme() {
 //   const { darkMode, toggleTheme } = useTheme();
@@ -31,7 +30,7 @@ function PersonalData({
 }) {
   const { formData } = useFormStore();
   const { openModal } = useModalStore();
-
+ 
   return (
     <div className="bg-slate-600 pt-10 p-2  w-1/4 h-[150px] hidden md:flex flex-col mt-10">
       <p className="w-full text-white">نام کاربری: {formData.username}</p>
@@ -49,6 +48,7 @@ function PersonalData({
       </button>
     </div>
   );
+  
 }
 // function PasswordModal() {
 //   const { isOpen, type, closeModal } = useModalStore();
@@ -117,10 +117,12 @@ function PersonalData({
 // }
 
 function Navbar() {
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openModal } = useModalStore();
   const { isLoggedIn } = useUserStore();
   const [showProfile, setShowProfile] = useState(false);
+  
   return (
     <>
       <nav className="bg-white  shadow-md fixed top-0 left-0 w-full z-50">
@@ -132,9 +134,9 @@ function Navbar() {
           >
             <span className="hidden md:flex">Changal</span>
             <img
-              src="/src/assets/Icons/Changal.svg"
+              src={fork}
               alt="fork"
-              className="md:absolute h-25 w-25 right-30 p-0"
+              className="md:absolute h-10 w-10 right-38 p-0"
             />
           </Link>
 

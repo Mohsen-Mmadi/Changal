@@ -1,6 +1,9 @@
 import { Outlet,Link } from "react-router-dom";
 import { Footer } from "./Home";
-
+import fenjaneh from '../assets/images/Cafee-Fenjaneh.jpg'
+import ratoon from '../assets/images/Cafee-Ratoon.jpg'
+import bistro from '../assets/images/Cafee-Bistro.jpg'
+import jakarto from '../assets/images/Cafee-Jakarto.jpg'
 
 let time = new Date();
 function openingHours() {
@@ -23,7 +26,7 @@ let mySelectedCafees: Cafee[] = [
     {
         id: 1,
         title: "کافه فنجانه",
-        image: "/src/assets/images/Cafee-Fenjaneh.jpg",
+        image: fenjaneh,
         location: "بلوار هزار",
         score: 4.1,
         patch: "/Cafees/Fenjaneh",
@@ -32,7 +35,7 @@ let mySelectedCafees: Cafee[] = [
       {
         id: 2,
         title: "کافه بیسترو",
-        image: "/src/assets/images/Cafee-Bistro.jpg",
+        image: bistro,
         location: "بلوار حمزه",
         score: 3.9,
         patch: "/Cafees/Bistro",
@@ -45,7 +48,7 @@ let mySelectedCafees: Cafee[] = [
     {
         id: 1,
         title: "کافه فنجانه",
-        image: "/src/assets/images/Cafee-Fenjaneh.jpg",
+        image: fenjaneh,
         location: "بلوار هزار",
         score: 4.1,
         patch: "/Cafees/Fenjaneh",
@@ -54,7 +57,7 @@ let mySelectedCafees: Cafee[] = [
       {
         id: 2,
         title: "کافه بیسترو",
-        image: "/src/assets/images/Cafee-Bistro.jpg",
+        image: bistro,
         location: "بلوار حمزه",
         score: 3.9,
         patch: "/Cafees/Bistro",
@@ -63,7 +66,7 @@ let mySelectedCafees: Cafee[] = [
       {
         id: 3,
         title: "کافه ریتون",
-        image: "/src/assets/images/Cafee-Ratoon.jpg",
+        image: ratoon,
         location: "بلوار آبنوس",
         score: 4,
         patch: "/Cafees/Ratoon",
@@ -72,7 +75,7 @@ let mySelectedCafees: Cafee[] = [
       {
         id: 4,
         title: "کافه جاکارتو",
-        image: "/src/assets/images/Cafee-Jakarto.jpg",
+        image: jakarto,
         location: "بلوار میثم",
         score: 3.3,
         patch: "/Cafees/Jacarto",

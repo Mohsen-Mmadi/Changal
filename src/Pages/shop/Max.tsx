@@ -1,4 +1,19 @@
 import "../../CSS/App.css";
+import max from '../../assets/images/RS-Max.jpg'
+import dizi from '../../assets/images/food/dizi.jpg'
+import ghalyehMahi from '../../assets/images/food/ghalyehMahi.jpg'
+import cheloFesenjoon from '../../assets/images/food/cheloFesenjoon.jpg'
+import akbarJoojeh from '../../assets/images/food/akbarJoojeh.jpg'
+import kokoSabzi from '../../assets/images/food/kokoSabzi.jpg'
+import saladShirazi from '../../assets/images/food/saladShirazi.jpg'
+import mastKoozeh from '../../assets/images/food/mastKoozeh.jpg'
+import jeleh from '../../assets/images/food/jeleh.jpg'
+import nan from '../../assets/images/food/Nan.jpg'
+import nooshabeh from '../../assets/images/food/nooshabeh.jpg'
+import wather from '../../assets/images/food/wather.jpg'
+import dooghMahali from '../../assets/images/food/dooghMahali.jpg'
+import { Footer } from "../Home";
+
 type menu = {
     id: number;
     title: string;
@@ -10,31 +25,31 @@ type menu = {
     {
       id: 1,
       title: "دیزی",
-      image: "/src/assets/images/food/dizi.jpg",
+      image: dizi,
       price: "175,000",
     },
     {
       id: 2,
       title: "چلو خورشت فسنجون",
-      image: "/src/assets/images/food/cheloFesenjoon.jpg",
+      image: cheloFesenjoon,
       price: "110,000",
     },
     {
       id: 3,
       title: "قلیه ماهی",
-      image: "/src/assets/images/food/ghalyehMahi.jpg",
+      image: ghalyehMahi,
       price: "200,000",
     },
     {
       id: 4,
       title: "اکبرجوجه",
-      image: "/src/assets/images/food/akbarJoojeh.jpg",
+      image: akbarJoojeh,
       price: "185,000",
     },
     {
       id: 5,
       title: "کوکو سبزی",
-      image: "/src/assets/images/food/kokoSabzi.jpg",
+      image: kokoSabzi,
       price: "65,000",
     },
   ];
@@ -42,25 +57,25 @@ type menu = {
     {
       id: 1,
       title: "سالاد شیرازی",
-      image: "/src/assets/images/food/saladShirazi.jpg",
+      image: saladShirazi,
       price: "40,000",
     },
     {
       id: 2,
       title: "ماست کوزه",
-      image: "/src/assets/images/food/mastKoozeh.jpg",
+      image: mastKoozeh,
       price: "19,000",
     },
     {
       id: 3,
       title: "ژله",
-      image: "/src/assets/images/food/jeleh.jpg",
+      image: jeleh,
       price: "35,000",
     },
     {
       id: 4,
       title: "نان اضافه",
-      image: "/src/assets/images/food/Nan.jpg",
+      image: nan,
       price: "5,000",
     },
   ];
@@ -68,19 +83,19 @@ type menu = {
     {
       id: 1,
       title: "نوشابه قوطی 150میلی لیتر",
-      image: "/src/assets/images/food/nooshabeh.jpg",
+      image: nooshabeh,
       price: "28,000",
     },
     {
       id: 2,
       title: "آب معدنی",
-      image: "/src/assets/images/food/wather.jpg",
+      image: wather,
       price: "6,000",
     },
     {
       id: 3,
       title: "دوغ محلی",
-      image: "/src/assets/images/food/dooghMahali.jpg",
+      image: dooghMahali,
       price: "50,000",
     },
   ];
@@ -90,7 +105,7 @@ function RestaurantBanner() {
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/RS-Max.jpg"
+          src={max}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -112,7 +127,7 @@ function RestaurantProfile() {
   const restaurant = {
     id: 1,
     title: "رستوران سنتی مکث",
-    image: "/src/assets/images/RS-Max.jpg",
+    image: max,
     location: "بلوار جمهوری",
     score: 4,
     patch: "/Rasturants/Max",
@@ -376,6 +391,7 @@ function Max() {
       <RestaurantProfile />
       <MenuTabs />
       <Menu/>
+      <Footer />
     </>
   );
 }

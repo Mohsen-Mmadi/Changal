@@ -1,5 +1,9 @@
 import { Outlet,Link } from "react-router-dom";
 import { Footer } from "./Home";
+import atavitch from '../assets/images/FSFood-Atavich.jpg'
+import meysamkhan from '../assets/images/FSFood-MeysamKhan.jpg'
+import sirberger from '../assets/images/FSFood-SirBerger.jpg'
+import team from '../assets/images/FSFood-Team.jpg'
 
 
 let time = new Date();
@@ -23,7 +27,7 @@ let mySelectedFastfoods: Fastfood[] = [
     {
         id: 1,
         title: "فست فود عطاویچ",
-        image: "/src/assets/images/FSFood-Atavich.jpg",
+        image: atavitch,
         location: "بلوار شیراز",
         score: 4.7,
         patch: "/Fastfoods/Atavich",
@@ -32,7 +36,7 @@ let mySelectedFastfoods: Fastfood[] = [
       {
         id: 2,
         title: "فست فود سربرگر",
-        image: "/src/assets/images/FSFood-SirBerger.jpg",
+        image: sirberger,
         location: "بلوار کوثر",
         score: 3.8,
         patch: "/Fastfoods/SirBerger",
@@ -45,7 +49,7 @@ let mySelectedFastfoods: Fastfood[] = [
     {
         id: 1,
         title: "فست فود عطاویچ",
-        image: "/src/assets/images/FSFood-Atavich.jpg",
+        image: atavitch,
         location: "بلوار شیراز",
         score: 4.7,
         patch: "/Fastfoods/Atavich",
@@ -54,7 +58,7 @@ let mySelectedFastfoods: Fastfood[] = [
       {
         id: 2,
         title: "فست فود سربرگر",
-        image: "/src/assets/images/FSFood-SirBerger.jpg",
+        image: sirberger,
         location: "بلوار کوثر",
         score: 3.8,
         patch: "/Fastfoods/SirBerger",
@@ -63,7 +67,7 @@ let mySelectedFastfoods: Fastfood[] = [
       {
         id: 3,
         title: "فست فود میثم خان",
-        image: "/src/assets/images/FSFood-MeysamKhan.jpg",
+        image: meysamkhan,
         location: "بلوار سرباز",
         score: 4,
         patch: "/Fastfoods/MeysamKhan",
@@ -72,7 +76,7 @@ let mySelectedFastfoods: Fastfood[] = [
       {
         id: 4,
         title: "فست فود تیم",
-        image: "/src/assets/images/FSFood-Team.jpg",
+        image: team,
         location: " برج اول",
         score: 3.5,
         patch: "/Fastfoods/Team",

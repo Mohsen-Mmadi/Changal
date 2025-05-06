@@ -1,11 +1,72 @@
 import "../../CSS/App.css";
+import bistro from '../../assets/images/Cafee-Bistro.jpg';
+import esperso from '../../assets/images/food/esperso.jpg';
+import lateh from '../../assets/images/food/lateh.jpg';
+import kasni from '../../assets/images/food/kasni.jpg';
+import abporteghal from '../../assets/images/food/abporteghal.jpg';
+import krosan from '../../assets/images/food/krosan.jpg';
+import eshtrodel from '../../assets/images/food/eshtrodel.jpg';
+import { Footer } from "../Home";
+
+type menu = {
+  id: number;
+  title: string;
+  image: string;
+  ditales?: string;
+  price: number;
+};
+let barHot: menu[] = [
+  {
+    id: 1,
+    title: "اسپرسو",
+    image: esperso,
+    price: 38000,
+  },
+  {
+    id: 2,
+    title: "لاته",
+    image: lateh,
+    price: 65000,
+  },
+  
+];
+let barCold: menu[] = [
+  {
+    id: 1,
+    title: "شربت کاسنی ",
+    image: kasni,
+    price: 32000,
+  },
+  {
+    id: 2,
+    title: "شربت آب پرتقال",
+    image: abporteghal,
+    price: 30000,
+  },
+  
+];
+let asraneh: menu[] = [
+  {
+    id: 1,
+    title: "اشترودل",
+    image: eshtrodel,
+    price: 60000,
+  },
+  {
+    id: 2,
+    title: "کروسان",
+    image: krosan,
+    price: 25000,
+  },
+  
+];
 function CafeeBanner() {
   return (
     <section className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden">
       {/* لایه عکس بلور شده */}
       <div className="absolute inset-0 backgroundBlur">
         <img
-          src="/src/assets/images/Cafee-Bistro.jpg"
+          src={bistro}
           alt="نمایشگاه"
           className="w-full h-full object-cover "
         />
@@ -27,7 +88,7 @@ function CafeeProfile() {
   const restaurant = {
     id: 1,
     title: "کافه بیسترو",
-    image: "/src/assets/images/Cafee-Bistro.jpg",
+    image: bistro,
     location: "بلوار حمزه",
     score: 3.9,
     patch: "/Cafees/Bistro",
@@ -138,12 +199,165 @@ function MenuTabs() {
     </>
   );
 }
+function Menu() {
+  return (
+    <>
+      
+      <h1 id="barHot" className="fontTitr font-bold text-3xl text-center ">
+        بار گرم
+      </h1>
+
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {barHot.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <h1 id="barCold" className="fontTitr font-bold text-3xl text-center ">
+         بار سرد
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {barCold.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
+      </div>
+      <h1 id="asraneh" className="fontTitr font-bold text-3xl text-center ">
+         عصرانه
+      </h1>
+      <div className="grid md:grid-cols-2 gap-6 px-4 md:px-20 mt-5 mb-5">
+        {asraneh.map((item) => (
+          <div
+            key={item.id}
+            className="flex bg-white rounded-xl  overflow-hidden  max-w-xl w-full mx-auto gap-x-20 md:gap-0"
+          >
+            {/* عکس غذا */}
+            <div className="w-40 h-40 shrink-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover rounded-l-xl"
+              />
+            </div>
+
+            {/* جزئیات غذا */}
+            <div className="flex flex-col justify-between p-4 w-full">
+              <div>
+                <h2 className="fontText font-bold text-lg mb-2">
+                  {item.title}
+                </h2>
+                <p className="fontText text-gray-700">
+                  {item.price.toLocaleString()} <span>تومان</span>
+                </p>
+              </div>
+
+              {/* دکمه افزودن */}
+              <button className="bg-orange-500 text-white flex items-center justify-center gap-2 px-3 py-1 rounded-md self-start mt-4 hover:bg-orange-600 transition">
+                افزودن
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="#000"
+                  className="bg-white rounded-md"
+                >
+                  <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+        
+      </div>
+    </>
+  );
+}
 function Bistro() {
   return (
     <>
       <CafeeBanner />
       <CafeeProfile />
       <MenuTabs />
+      <Menu />
+      <Footer />
     </>
   );
 }
